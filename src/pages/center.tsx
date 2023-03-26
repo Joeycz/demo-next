@@ -17,10 +17,9 @@ import PersonData from '@/components/PersonData'
 
 export default function RegisterPage() {
   const [mode, setMode] = React.useState<'dark' | 'light'>('light');
-  const [color, setColor] = React.useState<Color>('sky');
   const [file, setFile] = useState(null);
 
-  const handleFileChange = (event) => {
+  const handleFileChange = (event:any) => {
     const selectedFile = event.target.files[0];
     setFile(selectedFile);
     // 在这里可以触发处理文件的操作
@@ -30,7 +29,7 @@ export default function RegisterPage() {
     <Layout>
       <main>
         <section
-            className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
+            className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white')}
           >
           <div
             className={clsx(

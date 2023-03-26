@@ -22,7 +22,7 @@ import Forms from '@/components/Forms'
 import Vercel from '~/svg/Vercel.svg';
 
 
-function randomString(length, mix = true) {
+function randomString(length:any, mix = true) {
   var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var str2 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var result = '';
@@ -42,10 +42,9 @@ function randomString(length, mix = true) {
 
 export default function RegisterPage() {
   const [mode, setMode] = React.useState<'dark' | 'light'>('light');
-  const [color, setColor] = React.useState<Color>('sky');
   const [file, setFile] = useState(null);
 
-  const submit = (event) => {
+  const submit = (event:any) => {
     const key = sessionStorage.getItem('key')
     const pubkey = sessionStorage.getItem('pubkey')
     const ssc = sessionStorage.getItem('ssc')
@@ -56,7 +55,7 @@ export default function RegisterPage() {
     <Layout>
       <main>
         <section
-            className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
+            className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white')}
           >
           <div
             className={clsx(

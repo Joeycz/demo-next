@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Button from '@/components/buttons/Button';
 
-export default function PersonData(props) {
+export default function PersonData(props:any) {
   const [mode, setMode] = React.useState<'dark' | 'light'>('light');
   const [key, setKey] = React.useState('');
   const [pubkey, setPubkey] = React.useState('');
@@ -9,10 +9,10 @@ export default function PersonData(props) {
   const [did, setDid] = React.useState('');
   const getData = () => {
     if (typeof window !== 'undefined') {
-      setKey(window.localStorage.getItem('key'))
-      setPubkey(window.localStorage.getItem('pubkey'))
-      setSsc(window.localStorage.getItem('ssc'))
-      setDid(window.localStorage.getItem('did'))
+      setKey(localStorage.getItem('key') || '')
+      setPubkey(localStorage.getItem('pubkey') || '')
+      setSsc(localStorage.getItem('ssc') || '')
+      setDid(localStorage.getItem('did') || '')
     }
   }
   useEffect(() => {

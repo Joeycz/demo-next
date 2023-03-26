@@ -7,7 +7,6 @@ import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
-import Seo from '@/components/Seo';
 import PersonData from '@/components/PersonData'
 import { ImSpinner2 } from 'react-icons/im';
 
@@ -22,7 +21,7 @@ import { ImSpinner2 } from 'react-icons/im';
 import Vercel from '~/svg/Vercel.svg';
 
 
-function randomString(length, mix = true) {
+function randomString(length:any, mix = true) {
   var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var str2 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var result = '';
@@ -40,19 +39,18 @@ function randomString(length, mix = true) {
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
-export default function Forms(props) {
+export default function Forms(props:any) {
   const [mode, setMode] = React.useState<'dark' | 'light'>('light');
-  const [color, setColor] = React.useState<Color>('sky');
   const [file, setFile] = useState(null);
   const [did, setDid] = useState('');
   const [key, setKey] = useState('');
-  const [Ssc, setSsc] = useState('');
+  const [ssc, setSsc] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
   const [success, setSuccess] = useState('');
   const [subsuccess, setSubsuccess] = useState('');
 
-  const submit = (event) => {
+  const submit = (event:any) => {
     const lkey = localStorage.getItem('key')
     const lpubkey = localStorage.getItem('pubkey')
     const lssc = localStorage.getItem('ssc')
@@ -129,15 +127,15 @@ export default function Forms(props) {
       }
     }
   }
-  const handleDidChange = (event) => {
+  const handleDidChange = (event:any) => {
     console.log(event.target.value)
     setDid(event.target.value)
   }
-  const handleKeyChange = (event) => {
+  const handleKeyChange = (event:any) => {
     console.log(event.target.value)
     setKey(event.target.value)
   }
-  const handleSscChange = (event) => {
+  const handleSscChange = (event:any) => {
     console.log(event.target.value)
     setSsc(event.target.value)
   }
@@ -252,7 +250,7 @@ export default function Forms(props) {
       {
         (props.subtype ? !(success || subsuccess) : !success) && (
           <div>
-            <button disabled={loading} onClick={submit} className="mt-10 rounded-md bg-emerald-500 py-2 px-4 text-sm font-semibold text-white ring-inset ring-emerald-900 hover:bg-emerald-400 disabled:bg-gray-500 disabled:opacity-50">Send</button>
+            <button disabled={!!loading} onClick={submit} className="mt-10 rounded-md bg-emerald-500 py-2 px-4 text-sm font-semibold text-white ring-inset ring-emerald-900 hover:bg-emerald-400 disabled:bg-gray-500 disabled:opacity-50">Send</button>
           </div>
         )
       }
