@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
-import clsxm from '@/lib/clsxm';
-
-import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
-import PersonData from '@/components/PersonData'
 import { ImSpinner2 } from 'react-icons/im';
+
+import clsxm from '@/lib/clsxm';
 
 
 /**
@@ -18,14 +11,13 @@ import { ImSpinner2 } from 'react-icons/im';
  * You can override the next-env if the type is important to you
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
-import Vercel from '~/svg/Vercel.svg';
 
 
 function randomString(length:any, mix = true) {
-  var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var str2 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var result = '';
-  for (var i = length; i > 0; --i) {
+  const str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const str2 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let result = '';
+  for (let i = length; i > 0; --i) {
     if (mix) {
       result += str[Math.floor(Math.random() * str.length)];
     } else {
@@ -58,14 +50,14 @@ export default function Forms(props:any) {
 
     if (props.type === 'did') {
       setLoading('Sending to Authentication Service Provider Node')
-      if (ldid === did && key === lkey) {
+      if (ldid === did && key === lpubkey) {
         console.log('Success')
         setTimeout(() => {
           setLoading('')
           setSuccess('success')
         }, 2000)
       } else {
-        console.log('fail', did, key, ldid, lkey)
+        console.log('fail', did, key, ldid, lpubkey)
         setTimeout(() => {
           setLoading('')
           setError('Wrong Data')
@@ -111,28 +103,6 @@ export default function Forms(props:any) {
           setLoading('')
           setSubsuccess('Identity Authentication Completed')
         }, 4000)
-        setTimeout(() => {
-          setLoading('sending to Service Provider Node')
-        }, 6000)
-        setTimeout(() => {
-          setLoading('')
-          setSuccess('Real Estate Transaction is available')
-        }, 8000)
-      } else {
-        console.log('fail', did, key, ldid, lkey)
-        setTimeout(() => {
-          setLoading('')
-          setError('Wrong Data')
-        }, 5000)
-      }
-    }
-  }
-  const handleDidChange = (event:any) => {
-    console.log(event.target.value)
-    setDid(event.target.value)
-  }
-  const handleKeyChange = (event:any) => {
-    console.log(event.target.value)
     setKey(event.target.value)
   }
   const handleSscChange = (event:any) => {
@@ -181,11 +151,11 @@ export default function Forms(props:any) {
                   <>
                     <div className="mt-6">
                       <h3>Digital Certificate:</h3>
-                      <div className="text-emerald-500 bg-gray-200 py-1 px-4 mt-2 break-words">{ 'Digital Certificate' }</div>
+                      <div className="text-emerald-500 bg-gray-200 py-1 px-4 mt-2 break-words">Digital Certificate</div>
                     </div>
                     <div className="mt-6">
                       <h3>VC:</h3>
-                      <div className="text-emerald-500 bg-gray-200 py-1 px-4 mt-2 break-words">{ 'VC' }</div>
+                      <div className="text-emerald-500 bg-gray-200 py-1 px-4 mt-2 break-words">VC</div>
                     </div>
                   </>
                 )
