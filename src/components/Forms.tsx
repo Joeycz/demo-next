@@ -95,14 +95,14 @@ export default function Forms(props:any) {
         setSuccess('Real Estate Transaction is available')
       }, 8000)
       return
-      if (ldid === did && ssc === lssc) {
-        setTimeout(() => {
-          setLoading('Sending to Authentication Service Provider Node')
-        }, 2000)
-        setTimeout(() => {
-          setLoading('')
-          setSubsuccess('Identity Authentication Completed')
-        }, 4000)
+    }
+  }
+  const handleDidChange = (event:any) => {
+    console.log(event.target.value)
+    setDid(event.target.value)
+  }
+  const handleKeyChange = (event:any) => {
+    console.log(event.target.value)
     setKey(event.target.value)
   }
   const handleSscChange = (event:any) => {
