@@ -1,16 +1,11 @@
 // @ts-ignore
-import React, { useState } from 'react';
 import clsx from 'clsx';
+import React, { useState } from 'react';
+
 import clsxm from '@/lib/clsxm';
 
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
-import Seo from '@/components/Seo';
 import PersonData from '@/components/PersonData'
-
 
 /**
  * SVGR Support
@@ -19,14 +14,13 @@ import PersonData from '@/components/PersonData'
  * You can override the next-env if the type is important to you
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
-import Vercel from '~/svg/Vercel.svg';
 
 
 function randomString(length:any, mix = true) {
-  var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var str2 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var result = '';
-  for (var i = length; i > 0; --i) {
+  const str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const str2 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let result = '';
+  for (let i = length; i > 0; --i) {
     if (mix) {
       result += str[Math.floor(Math.random() * str.length)];
     } else {
@@ -74,7 +68,7 @@ export default function RegisterPage() {
             {
               (file && file.name) ? (
                 <div className='space-x-10 mt-16'>
-                  <p className="font-extrabold tracking-tight text-4xl md:text-7xl text-emerald-500">Upload Success!</p>
+                  <p className="font-extrabold tracking-tight text-4xl md:text-7xl text-emerald-500">Success</p>
                   <PersonData deregister="0"></PersonData>
                 </div>
               ) : (

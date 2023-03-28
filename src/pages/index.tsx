@@ -55,7 +55,7 @@ export default function HomePage() {
                   </ArrowLink>
                 </div>
                 <div>
-                  <h2>Service And Resource</h2>
+                  <h2>Service and Resource</h2>
                   <div>
                     <ArrowLink className='text-emerald-500' href='/sr'>
                       Real Estate Transaction

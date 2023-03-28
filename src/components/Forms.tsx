@@ -52,7 +52,7 @@ export default function Forms(props: any) {
         console.log('Success');
         setTimeout(() => {
           setLoading('');
-          setSuccess('success');
+          setSuccess('Success');
         }, 2000);
       } else {
         console.log('fail', did, key, ldid, lpubkey);
@@ -67,7 +67,7 @@ export default function Forms(props: any) {
         console.log('Success');
         setTimeout(() => {
           setLoading('');
-          setSuccess('DID Activated. Real Name Authentication Completed');
+          setSuccess('DID Activated<br />Real Name Authentication Completed');
         }, 2000);
       } else {
         console.log('fail', did, key, ldid, lkey);
@@ -86,11 +86,11 @@ export default function Forms(props: any) {
         setSubsuccess('Identity Authentication Completed');
       }, 4000);
       setTimeout(() => {
-        setLoading('sending to Service Provider Node');
+        setLoading('Sending to Service Provider Node');
       }, 6000);
       setTimeout(() => {
         setLoading('');
-        setSuccess('Real Estate Transaction is available');
+        setSuccess('Real Estate Transaction is Available');
       }, 8000);
       return;
     }
@@ -137,17 +137,7 @@ export default function Forms(props: any) {
       ) : success || subsuccess ? (
         <>
           {success && (
-            <p className='text-4xl font-extrabold tracking-tight text-emerald-500 md:text-7xl'>
-              {success}
-            </p>
-          )}
-          {props.type === 'did' && (
-            <div className='mt-6'>
-              <h3>DID:</h3>
-              <div className='mt-2 break-words bg-gray-200 py-1 px-4 text-emerald-500'>
-                {did}
-              </div>
-            </div>
+            <p className='text-4xl font-extrabold tracking-tight text-emerald-500 md:text-7xl'  dangerouslySetInnerHTML={{ __html: success }}></p>
           )}
           {props.type === 'ic' && !props.subtype && (
             <>
@@ -186,7 +176,7 @@ export default function Forms(props: any) {
                     className='block w-full rounded-md border-0 py-2 pr-10 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6'
                     data-dl-input-translation='true'
                     style={{ height: '40px !important' }}
-                    placeholder='you can get your did in personal center'
+                    placeholder='you can get your SSC in personal center'
                   ></textarea>
                 </div>
               </div>
@@ -210,7 +200,7 @@ export default function Forms(props: any) {
                     className='block w-full rounded-md border-0 py-2 pr-10 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6'
                     data-dl-input-translation='true'
                     style={{ height: '40px !important' }}
-                    placeholder='you can get your did in personal center'
+                    placeholder='you can get your Public Key in personal center'
                   ></textarea>
                 </div>
               </div>
@@ -234,7 +224,7 @@ export default function Forms(props: any) {
                     className='block w-full rounded-md border-0 py-2 pr-10 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6'
                     data-dl-input-translation='true'
                     style={{ height: '40px !important' }}
-                    placeholder='you can get your did in personal center'
+                    placeholder='you can get your DID in personal center'
                   ></textarea>
                 </div>
               </div>
